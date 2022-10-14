@@ -4,6 +4,7 @@ namespace  Core;
 use Core\Routes;
 use Core\Request;
 use Core\Response;
+use Core\Database;
 
 class Aplicacion{
 
@@ -23,8 +24,9 @@ class Aplicacion{
     
     // Correr la app
     public function run(){ 
-        
+        Database::conexion_db();
         $this->routes->ruteador($this->request->http(),$this->request->uri());
+        
         
     }
 

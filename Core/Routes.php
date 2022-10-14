@@ -28,6 +28,7 @@ class Routes {
     public function get($ruta , $parametros=[]){ 
 
         $this->array_url[$ruta] = $parametros;
+
     }
 
 
@@ -59,10 +60,12 @@ class Routes {
                 $handler = $routeInfo[1];
                 $vars = $routeInfo[2];
                 
+                print_r($vars);
                 $clase = "App\\Controllers\\".$handler[0];
                 $metodo = $handler[1];
-                $x = new $clase;
-                $x->$metodo();
+                
+                $x = new $clase();
+                $x->$metodo($vars);
                 
                 break;
         }
