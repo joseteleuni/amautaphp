@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use RedBeanPHP\R;
+use App\Models\User;
 
 class Home {
 
@@ -9,7 +10,18 @@ class Home {
         
         echo "Esto es el indice";
         echo $param['id'];
-        $post=R::load('post',$param['id']);
-        echo $post;
+        /*
+        $user = User::orm();
+        $user->name="Pedro";
+        R::store($user);
+        */
+        
+        $x = R::load('users',[1,2]);
+        R::trash($x);
+
+
+
+        //$post=R::load('',1);
+        //echo $post->nombre;
     }
 }

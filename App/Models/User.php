@@ -1,20 +1,18 @@
 <?php
 
+
 namespace App\Models;
 
 use RedBeanPHP\R;
-use Core\Database;
 
-class User extends Database  
+class User extends R  
 
 {
- 
-function edit(){
+   
 
+    public static function orm(){
+         return R::dispense('users');
+    }
 
-   static::conexion_db();
 }
-
-}
-
 
